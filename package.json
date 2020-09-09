@@ -1,0 +1,24 @@
+{
+  "name": "@kth/default-envs",
+  "version": "0.0.1",
+  "description": "Process env:s that are not configured on start up, but accessed * as envs in the application are added with there default values.Default paths and error pages for uri:s.",
+  "main": "index.js",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KTH/default-envs.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3"
+  },
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha ./tests/unit-tests/test-*.js",
+    "clean": "rm -r ./node_modules && rm package-lock.json"
+  },
+  "engines": {
+    "node": "^12.14.0"
+  }
+}
