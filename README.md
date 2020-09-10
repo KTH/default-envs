@@ -34,7 +34,7 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 
 ## Log what defaults are used
 
-If you pass a logger like `console` or any other that implements logger functions _debug_ and _info_ you will get information about what defaults are used when invoking `defaultEnvs.set(DEFAULTS);``
+If you pass a logger like `console` or any other that implements logger functions _debug_ and _info_ you will get information about what defaults are used when invoking `defaultEnvs.set({}, logger);``
 
 ```javascript
 const DEFAULTS = {
@@ -43,7 +43,7 @@ const DEFAULTS = {
   APPINSIGHTS_INSTRUMENTATIONKEY: "",
 };
 
-defaultEnvs.set(DEFAULTS);
+defaultEnvs.set(DEFAULTS, console);
 ```
 
 ```log
