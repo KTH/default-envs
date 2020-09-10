@@ -1,6 +1,6 @@
 # Default-envs ![alt text](https://api.travis-ci.org/KTH/default-envs.svg?branch=master)
 
- Process env:s that are not configured on start up, but accessed via process.env.*ENV_NAME* in the application are added with there default values, as specified as a key-value object.
+Process env:s that are not configured on start up, but accessed via process.env._ENV_NAME_ in the application are added with there default values, as specified as a key-value object.
 
 ```javascript
 const DEFAULTS = {
@@ -12,7 +12,6 @@ const DEFAULTS = {
 defaultEnvs.set(DEFAULTS);
 
 console.log(process.env.LOG_LEVEL); // 80
-
 ```
 
 If an env is set on startup it will be used not the default.
@@ -31,12 +30,11 @@ const DEFAULTS = {
 defaultEnvs.set(DEFAULTS);
 
 console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
-
 ```
 
 ## Log what defaults are used
 
-If you pass a logger like `console` or any other that implements logger functions *debug* and *info* you will get information about what defaults are used when invoking `defaultEnvs.set(DEFAULTS);``
+If you pass a logger like `console` or any other that implements logger functions _debug_ and _info_ you will get information about what defaults are used when invoking `defaultEnvs.set(DEFAULTS);``
 
 ```javascript
 const DEFAULTS = {
@@ -53,7 +51,7 @@ defaultEnvs.set(DEFAULTS);
 08:57:00.811Z  INFO ny-app:  - 'PORT' is not set, defaulting to '80'.
 ```
 
-# Tests
+## Tests
 
 `npm install`
 `npm test`
@@ -68,4 +66,4 @@ Default Envs
     ✓ After runnign unset() all emvs set on startup are still availible.
     ✓ If a logger is passed to the set({}, logger), use it to log.
 
-````
+```
