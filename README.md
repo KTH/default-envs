@@ -1,4 +1,4 @@
-# default-envs
+# Default-envs ![alt text](https://api.travis-ci.org/KTH/default-envs.svg?branch=master)
 
  Process env:s that are not configured on start up, but accessed via process.env.*ENV_NAME* in the application are added with there default values, as specified as a key-value object.
 
