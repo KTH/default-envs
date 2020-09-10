@@ -46,11 +46,9 @@ const DEFAULTS = {
 };
 
 defaultEnvs.set(DEFAULTS);
-
 ```
+
+```log
 08:57:00.808Z  INFO my-app:  - 'LOG_LEVEL' is not set, defaulting to 'info'.
 08:57:00.811Z  INFO ny-app:  - 'PORT' is not set, defaulting to '80'.
 ```
-
-
-
