@@ -14,7 +14,7 @@ defaultEnvs.set(DEFAULTS);
 console.log(process.env.LOG_LEVEL); // 80
 ```
 
-If an env is set on startup it will be used not the default.
+If an env is set on startup it will be used, not the default.
 
 ```bash
 APPINSIGHTS_INSTRUMENTATIONKEY="abc-123" node app.js
