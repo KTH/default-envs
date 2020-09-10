@@ -5,14 +5,14 @@
 const expect = require("chai").expect;
 const defaultEnvs = require("../../index");
 
-describe("Cluster specifics\n", function () {
-  it("Read a default value.", function () {
+describe("Default Envs \n", function () {
+  it("If a default value is set you can access it wia process.env.", function () {
     defaultEnvs.set({ LOG_LEVEL: "superhigh" });
     expect(process.env.LOG_LEVEL).to.equal("superhigh");
     defaultEnvs.unset();
   });
 
-  it("Ignores key-value that already exists before setting defaults.", function () {
+  it("If a env is already set prior to running set(defaults), process.env will return it.", function () {
     process.env.LOG_LEVEL = "info";
     defaultEnvs.set({ LOG_LEVEL: "superhigh" });
     expect(process.env.LOG_LEVEL).to.equal("info");
@@ -27,6 +27,17 @@ describe("Cluster specifics\n", function () {
     defaultEnvs.unset();
     expect(process.env.LOG_LEVEL).to.be.undefined;
     expect(process.env.DB_USER).to.be.undefined;
+  });
+
+  it("After runnign unset() all emvs set on startup are still availible.", function () {
+    process.env["DB_PWD"] = "some secret not in defaults";
+    defaultEnvs.set({ LOG_LEVEL: "low", DB_USER: "admin" });
+    expect(process.env.LOG_LEVEL).to.equal("low");
+    expect(process.env.DB_USER).to.equal("admin");
+    defaultEnvs.unset();
+    expect(process.env.LOG_LEVEL).to.equal(undefined);
+    expect(process.env.DB_USER).to.equal(undefined);
+    expect(process.env.DB_PWD).to.equal("some secret not in defaults");
   });
 
   it("If a logger is passed to the set({}, logger), use it to log.", function () {
