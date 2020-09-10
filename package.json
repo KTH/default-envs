@@ -1,6 +1,7 @@
 {
   "name": "@kth/default-envs",
   "version": "0.0.1",
+  "automaticPublish": "true",
   "description": "Process env:s that are not configured on start up, but accessed * as envs in the application are added with there default values.Default paths and error pages for uri:s.",
   "main": "index.js",
   "private": false,
@@ -14,6 +15,10 @@
     "type": "git",
     "url": "git://github.com/KTH/default-envs.git"
   },
+  "keywords": [
+    "kth",
+    "envs"
+  ],
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
