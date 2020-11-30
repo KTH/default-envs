@@ -22,12 +22,13 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.2.0"
+    "mocha": "^8.2.1"
   },
   "scripts": {
     "build": "./build.sh",
     "test": "node_modules/mocha/bin/mocha ./tests/unit-tests/test-*.js",
-    "clean": "rm -r ./node_modules && rm package-lock.json"
+    "clean": "rm -r ./node_modules && rm package-lock.json",
+    "package-update": "git pull && npm run clean & ncu -u && npm install && npm test"
   },
   "engines": {
     "node": "^12.14.0"
