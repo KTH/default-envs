@@ -1,5 +1,7 @@
 # Default-envs ![alt text](https://api.travis-ci.org/KTH/default-envs.svg?branch=master)
 
+`@kth/default-envs`
+
 Process env:s that are not configured on start up, but accessed via process.env._ENV_NAME_ in the application are added with there default values, as specified as a key-value object.
 
 ```javascript
