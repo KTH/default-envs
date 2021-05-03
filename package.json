@@ -20,8 +20,8 @@
     "envs"
   ],
   "devDependencies": {
-    "chai": "^4.3.0",
-    "mocha": "^8.3.0"
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
   },
   "scripts": {
     "build": "./build.sh",
@@ -30,6 +30,6 @@
     "package-update": "git pull && npm run clean & ncu -u && npm install && npm audit fix && npm test"
   },
   "engines": {
-    "node": "^12"
+    "node": "^14"
   }
 }
