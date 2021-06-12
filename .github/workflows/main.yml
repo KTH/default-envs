@@ -23,5 +23,5 @@ jobs:
           NPM_UPDATES_AVAILABLE: True
           BUILD_INFORMATION_OUTPUT_FILE: "/config/version.js"
         run: |
-          ${{ secrets.EVOLENE_LATEST_RUN_COMMAND }}
+          ${{ secrets.EVOLENE_RUN_COMMAND }}
 
