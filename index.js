@@ -23,7 +23,9 @@ const set = (defaultKeyValues, logger) => {
   Object.keys(defaults).forEach(function (key) {
     if (!process.env[key]) {
       if (log) {
-        log.info(` - '${key}' is not set, defaulting to '${defaults[key]}'.`);
+        log.info(
+          ` - Env '${key}' is not set, defaulting to '${defaults[key]}'.`
+        );
       }
       process.env[key] = defaults[key];
     }
