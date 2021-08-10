@@ -13,7 +13,7 @@ const DEFAULTS = {
 
 defaultEnvs.set(DEFAULTS);
 
-console.log(process.env.LOG_LEVEL); // 80
+console.log(process.env.PORT); // 80
 ```
 
 If an env is set on startup it will be used, not the default.
