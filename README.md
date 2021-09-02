@@ -1,4 +1,4 @@
-# Default-envs ![alt text](https://api.travis-ci.org/KTH/default-envs.svg?branch=master) ![Continous Integration](https://github.com/KTH/default-envs/actions/workflows/main.yml/badge.svg)
+# Default-envs ![Continous Integration](https://github.com/KTH/default-envs/actions/workflows/main.yml/badge.svg)
 
 `@kth/default-envs`
 
