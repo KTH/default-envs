@@ -1,5 +1,6 @@
 let log;
 let defaults;
+
 /**
  * Set all of the default public env:s that does not already have a value set.
  * If any of the defaults are already set when the set() function is called
