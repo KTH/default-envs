@@ -49,8 +49,8 @@ defaultEnvs.set(DEFAULTS, console);
 ```
 
 ```log
-08:57:00.808Z  INFO my-app:  - 'LOG_LEVEL' is not set, defaulting to 'info'.
-08:57:00.811Z  INFO my-app:  - 'PORT' is not set, defaulting to '80'.
+08:57:00.808Z  INFO my-app:  - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
+08:57:00.811Z  INFO my-app:  - Env 'PORT' is not set, defaulting to '80'.
 ```
 
 ## Tests
