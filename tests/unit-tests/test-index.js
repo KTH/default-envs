@@ -6,21 +6,21 @@ const expect = require("chai").expect;
 const defaultEnvs = require("../../index");
 
 describe("Default Envs \n", function () {
-  it("Throw an error if a required env is missing. Set via variable", function () {
+  it("Throw an error if a required env is missing. Set via variable defaultEnvs.REQUIRED_NO_DEFAULT", function () {
     expect(() => {
       defaultEnvs.set({
         USERNAME: "admin",
-        PASSWORD: defaultEnvs.ENV_REQUIRED,
+        PASSWORD: defaultEnvs.REQUIRED_NO_DEFAULT,
       });
     }).to.throw("Required env 'PASSWORD' does not exist.");
     defaultEnvs.unset();
   });
 
-  it("Throw an error if a required env is missing. Set via string", function () {
+  it("Throw an error if a required env is missing. Set via string REQUIRED_NO_DEFAULT", function () {
     expect(() => {
       defaultEnvs.set({
         USERNAME: "admin",
-        PASSWORD: "ENV_REQUIRED",
+        PASSWORD: "REQUIRED_NO_DEFAULT",
       });
     }).to.throw("Required env 'PASSWORD' does not exist.");
     defaultEnvs.unset();

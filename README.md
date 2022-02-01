@@ -43,8 +43,8 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 ```
 
 ### Required values without any defaults
-Some envs do not have defaults and must required to exist before starting your service. You can do this by setting the value of the env attribute to defaultEnvs.ENV_REQUIRED. This will make the application throw an exception if the env is not found when runing
-defaultEnvs.set({}).
+Some envs do not have defaults and must required to exist before starting your service. You can do this by setting the value of the env attribute to `defaultEnvs.REQUIRED_NO_DEFAULT`. This will make the application throw an exception if the env is not found when runing
+defaultEnvs.set({}), console.
 
 ```bash
 node app.js
@@ -55,7 +55,7 @@ const defaultEnvs = require("@kth/default-envs");
 
 const DEFAULTS = {
   USER: "admin",
-  PASSWORD: defaultEnvs.ENV_REQUIRED
+  `PASSWORD: defaultEnvs.REQUIRED_`NO_DEFAULT
 };
 
 defaultEnvs.set(DEFAULTS); // Exception: Required process.env['PASSWORD'] does not exist.
@@ -71,7 +71,7 @@ const defaultEnvs = require("@kth/default-envs");
 
 const DEFAULTS = {
   USER: "admin",
-  PASSWORD: defaultEnvs.ENV_REQUIRED
+  `PASSWORD: defaultEnvs.REQUIRED_`NO_DEFAULT
 };
 
 defaultEnvs.set(DEFAULTS); 

@@ -1,6 +1,6 @@
 let log;
 let defaults;
-let ENV_REQUIRED = "ENV_REQUIRED";
+let REQUIRED_NO_DEFAULT = "REQUIRED_NO_DEFAULT";
 
 /**
  * Set all of the default public env:s that does not already have a value set.
@@ -24,7 +24,7 @@ const set = (defaultKeyValues, logger) => {
 
   Object.keys(defaults).forEach(function (key) {
     if (!process.env[key]) {
-      if (defaults[key] === ENV_REQUIRED) {
+      if (defaults[key] === REQUIRED_NO_DEFAULT) {
         if (log) {
           log.warn(
             `'${key}' is required to have the env value set before running defaultEnv.set(), no default value is available.`
@@ -63,5 +63,5 @@ const unset = () => {
 module.exports = {
   set: set,
   unset: unset,
-  ENV_REQUIRED: ENV_REQUIRED,
+  REQUIRED_NO_DEFAULT: REQUIRED_NO_DEFAULT,
 };
