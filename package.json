@@ -30,6 +30,6 @@
     "package-update": "git pull && npm run clean & ncu -u && npm install && npm audit fix && npm test"
   },
   "engines": {
-    "node": "^14"
+    "node": "^16"
   }
 }
