@@ -5,6 +5,8 @@
 Process env:s that are not configured on start up, but accessed via process.env._ENV_NAME_ in the application are added with there default values, as specified as a key-value object.
 
 ```javascript
+const defaultEnvs = require("@kth/default-envs");
+
 const DEFAULTS = {
   LOG_LEVEL: "info",
   PORT: 80,
@@ -23,6 +25,8 @@ APPINSIGHTS_INSTRUMENTATIONKEY="abc-123" node app.js
 ```
 
 ```javascript
+const defaultEnvs = require("@kth/default-envs");
+
 const DEFAULTS = {
   LOG_LEVEL: "info",
   PORT: 80,
@@ -38,7 +42,13 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 
 If you pass a logger like `console` or any other that implements logger functions _debug_ and _info_ you will get information about what defaults are used when invoking `defaultEnvs.set({}, logger);`
 
+```bash
+APPINSIGHTS_INSTRUMENTATIONKEY="abc-123" node app.js
+```
+
 ```javascript
+const defaultEnvs = require("@kth/default-envs");
+
 const DEFAULTS = {
   LOG_LEVEL: "info",
   PORT: 80,
