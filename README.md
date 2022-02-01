@@ -72,7 +72,7 @@ defaultEnvs.set(DEFAULTS, console);
 
 Default Envs
 
-    ✓ If a default value is set you can access it wia process.env.
+    ✓ If a default value is set you can access it via process.env.
     ✓ If a env is already set prior to running set(defaults), process.env will return it.
     ✓ After runnign unset() all defaults values are removed from process.env array.
     ✓ After runnign unset() all emvs set on startup are still availible.
