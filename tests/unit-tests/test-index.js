@@ -6,6 +6,26 @@ const expect = require("chai").expect;
 const defaultEnvs = require("../../index");
 
 describe("Default Envs \n", function () {
+  it("Throw an error if a required env is missing. Set via variable", function () {
+    expect(() => {
+      defaultEnvs.set({
+        USERNAME: "admin",
+        PASSWORD: defaultEnvs.ENV_REQUIRED,
+      });
+    }).to.throw("Required process.env['PASSWORD'] does not exist.");
+    defaultEnvs.unset();
+  });
+
+  it("Throw an error if a required env is missing. Set via string", function () {
+    expect(() => {
+      defaultEnvs.set({
+        USERNAME: "admin",
+        PASSWORD: "ENV_REQUIRED",
+      });
+    }).to.throw("Required process.env['PASSWORD'] does not exist.");
+    defaultEnvs.unset();
+  });
+
   it("If a default value is set you can access it wia process.env.", function () {
     defaultEnvs.set({ LOG_LEVEL: "superhigh" });
     expect(process.env.LOG_LEVEL).to.equal("superhigh");
