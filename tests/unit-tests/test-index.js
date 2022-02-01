@@ -12,7 +12,7 @@ describe("Default Envs \n", function () {
         USERNAME: "admin",
         PASSWORD: defaultEnvs.ENV_REQUIRED,
       });
-    }).to.throw("Required process.env['PASSWORD'] does not exist.");
+    }).to.throw("Required env 'PASSWORD' does not exist.");
     defaultEnvs.unset();
   });
 
@@ -22,7 +22,7 @@ describe("Default Envs \n", function () {
         USERNAME: "admin",
         PASSWORD: "ENV_REQUIRED",
       });
-    }).to.throw("Required process.env['PASSWORD'] does not exist.");
+    }).to.throw("Required env 'PASSWORD' does not exist.");
     defaultEnvs.unset();
   });
 

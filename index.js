@@ -27,10 +27,10 @@ const set = (defaultKeyValues, logger) => {
       if (defaults[key] === ENV_REQUIRED) {
         if (log) {
           log.warn(
-            `'${key}' is required to have a process.env set according to ENV_REQUIRED, so no default value is available.`
+            `'${key}' is required to have the env value set before running defaultEnv.set(), no default value is available.`
           );
         }
-        throw `Required process.env['${key}'] does not exist.`;
+        throw `Required env '${key}' does not exist.`;
       }
 
       if (log) {
