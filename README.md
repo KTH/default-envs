@@ -43,8 +43,8 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 ```
 
 ### Required values without any defaults
-Some envs do not have defaults and must required to exist before starting your service. You can do this by setting the value of the env attribute to `defaultEnvs.REQUIRED_NO_DEFAULT`. This will make the application throw an exception if the env is not found when runing
-defaultEnvs.set({}), console.
+Some envs do not have defaults and must required to exist before starting your service. 
+defaultEnvs.required([], console).
 
 ```bash
 node app.js
@@ -55,11 +55,11 @@ const defaultEnvs = require("@kth/default-envs");
 
 const DEFAULTS = {
   USER: "admin",
-  `PASSWORD: defaultEnvs.REQUIRED_`NO_DEFAULT
+  URI: 'example.com'
 };
 
-defaultEnvs.set(DEFAULTS); // Exception: Required process.env['PASSWORD'] does not exist.
-
+defaultEnvs.set(DEFAULTS); 
+defaultEnvs.required(['PASSWORD']); // Exception:Required env 'PASSWORD' does not exist.
 ```
 
 ```bash
@@ -71,11 +71,11 @@ const defaultEnvs = require("@kth/default-envs");
 
 const DEFAULTS = {
   USER: "admin",
-  `PASSWORD: defaultEnvs.REQUIRED_`NO_DEFAULT
+  URI: 'example.com'
 };
 
 defaultEnvs.set(DEFAULTS); 
-
+defaultEnvs.required(['PASSWORD']);
 console.log(process.env.PASSWORD); // s3cret
 
 ```
@@ -85,7 +85,7 @@ console.log(process.env.PASSWORD); // s3cret
 If you pass a logger like `console` or any other that implements logger functions _debug_, _info_ or _warn_ you will get information about what defaults are used when invoking `defaultEnvs.set({}, logger);`
 
 ```bash
-APPINSIGHTS_INSTRUMENTATIONKEY="abc-123" node app.js
+TOKEN="xxxx-yyyy" PORT=3000 node app.js
 ```
 
 ```javascript
@@ -98,11 +98,18 @@ const DEFAULTS = {
 };
 
 defaultEnvs.set(DEFAULTS, console);
+defaultEnvs.required(['TOKEN', 'PASSWORD']); 
 ```
 
 ```log
 08:57:00.808Z  INFO my-app:  - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
-08:57:00.811Z  INFO my-app:  - Env 'PORT' is not set, defaulting to '80'.
+08:57:00.811Z  INFO my-app:  - Env 'APPINSIGHTS_INSTRUMENTATIONKEY' is not set, defaulting to ''.
+08:57:00.811Z  INFO my-app:  - ✅ Found required env 'TOKEN'
+08:57:00.811Z  INFO my-app:  - 🚨 Missing required env 'PASSWORD'
+08:57:00.811Z  WARN my-app:  Required env 'PASSWORD' does not exist.
+
+  Exception: Required env 'PASSWORD' does not exist.
+
 ```
 
 ## Tests
