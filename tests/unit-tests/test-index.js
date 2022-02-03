@@ -6,23 +6,24 @@ const expect = require("chai").expect;
 const defaultEnvs = require("../../index");
 
 describe("Default Envs \n", function () {
-  it("Throw an error if a required env is missing. Set via variable defaultEnvs.REQUIRED_NO_DEFAULT", function () {
+  it("Throw an error if a required env is missing.", function () {
     expect(() => {
-      defaultEnvs.set({
-        USERNAME: "admin",
-        PASSWORD: defaultEnvs.REQUIRED_NO_DEFAULT,
-      });
-    }).to.throw("Required env 'PASSWORD' does not exist.");
+      defaultEnvs.set({ DB_USER: "admin" });
+      defaultEnvs.required(["DB_PWD"]);
+    }).to.throw("Required env 'DB_PWD' does not exist.");
+    expect(() => {
+      defaultEnvs.set({ DB_USER: "admin", DB_PWD: "s3cret" });
+      defaultEnvs.required(["DB_PWD"]);
+    }).not.to.throw("Required env 'DB_PWD' does not exist.");
     defaultEnvs.unset();
   });
 
-  it("Throw an error if a required env is missing. Set via string REQUIRED_NO_DEFAULT", function () {
+  it("Do not throw an error if a required env exists.", function () {
+    process.env.DB_PWD = "s3cret";
     expect(() => {
-      defaultEnvs.set({
-        USERNAME: "admin",
-        PASSWORD: "REQUIRED_NO_DEFAULT",
-      });
-    }).to.throw("Required env 'PASSWORD' does not exist.");
+      defaultEnvs.set({ DB_USER: "admin" });
+      defaultEnvs.required(["DB_PWD"]);
+    }).not.to.throw("Required env 'DB_PWD' does not exist.");
     defaultEnvs.unset();
   });
 
@@ -63,9 +64,9 @@ describe("Default Envs \n", function () {
   it("If a logger is passed to the set({}, logger), use it to log.", function () {
     expect(() => {
       defaultEnvs.set({ LOG_LEVEL: "low", DB_USER: "admin" }, {});
-    }).to.throw("log.info is not a function");
+    }).to.throw("Logger does not implement debug(str)");
     expect(() => {
       defaultEnvs.unset();
-    }).to.throw("log.debug is not a function");
+    }).to.throw("Logger does not implement debug(str)");
   });
 });

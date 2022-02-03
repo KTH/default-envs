@@ -1,0 +1,29 @@
+{
+  "name": "default-envs-demo",
+  "version": "0.0.1",
+  "automaticPublish": "true",
+  "main": "demo.js",
+  "private": false,
+  "author": {
+    "name": "KTH",
+    "email": "infosys@kth.se",
+    "url": "https://github.com/KTH"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+
+    "url": "git://github.com/KTH/default-envs.git"
+  },
+  "keywords": [
+    "kth",
+    "envs"
+  ],
+  "scripts": {
+    "ok": "PASSWORD='s3cret' TOKEN='xxxx-1111' APPLICATION_NAME='Super default-envs-demo 🚀' node demo.js",
+    "fail": "TOKEN='xxxx-1111' node demo.js"
+  },
+  "engines": {
+    "node": "^16"
+  }
+}
