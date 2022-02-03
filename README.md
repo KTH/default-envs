@@ -43,8 +43,8 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 ```
 
 ### Required values without any defaults
-Some envs do not have defaults and must required to exist before starting your service. 
-defaultEnvs.required([], console).
+Some envs do not have defaults and must exist before starting your service. 
+defaultEnvs.required([], console) will print information about if a logger is passed, and if the env is missing when invoking `required` throw an error _Required env 'PASSWORD' does not exist._ .
 
 ```bash
 node app.js
@@ -119,12 +119,56 @@ defaultEnvs.required(['TOKEN', 'PASSWORD']);
 
 ```log
 
-Default Envs
+  Default Envs 
 
-    ✓ If a default value is set you can access it via process.env.
-    ✓ If a env is already set prior to running set(defaults), process.env will return it.
-    ✓ After runnign unset() all defaults values are removed from process.env array.
-    ✓ After runnign unset() all emvs set on startup are still availible.
-    ✓ If a logger is passed to the set({}, logger), use it to log.
+    ✔ Throw an error if a required env is missing.
+    ✔ Do not throw an error if a required env exists.
+    ✔ If a default value is set you can access it wia process.env.
+    ✔ If a env is already set prior to running set(defaults), process.env will return it.
+    ✔ After runnign unset() all defaults values are removed from process.env array.
+    ✔ After runnign unset() all emvs set on startup are still availible.
+    ✔ If a logger is passed to the set({}, logger), use it to log.
 
+  7 passing (10ms)
+  
 ```
+
+## Demo
+
+1. Go to the directory https://github.com/KTH/default-envs/tree/master/demo
+2. `npm install`
+3. `npm run ok`
+```log
+> default-envs-demo@0.0.1 ok
+> PASSWORD='s3cret' TOKEN='xxxx-1111' APPLICATION_NAME='Super default-envs-demo 🚀' node demo.js
+
+ - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
+ - Env 'PORT' is not set, defaulting to '3000'.
+ - Env 'API_HOST' is not set, defaulting to 'https://api.kth.se'.
+ - Env 'APPINSIGHTS_INSTRUMENTATIONKEY' is not set, defaulting to ''.
+ - ✅ Found required env 'PASSWORD'
+ - ✅ Found required env 'TOKEN'
+
+Application name: Super default-envs-demo 🚀
+```
+4. `npm run fail`
+```log
+> default-envs-demo@0.0.1 fail
+> TOKEN='xxxx-1111' node demo.js
+
+ - Env 'APPLICATION_NAME' is not set, defaulting to 'Demo-app'.
+ - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
+ - Env 'PORT' is not set, defaulting to '3000'.
+ - Env 'API_HOST' is not set, defaulting to 'https://api.kth.se'.
+ - Env 'APPINSIGHTS_INSTRUMENTATIONKEY' is not set, defaulting to ''.
+ - 🚨 Missing required env 'PASSWORD'
+ - ✅ Found required env 'TOKEN'
+Required env 'PASSWORD' does not exist.
+
+/Users/patricjansson/dev/kth/gita.sys.kth.se/default-envs/demo/node_modules/@kth/default-envs/index.js:69
+      throw message;
+      ^
+Required env 'PASSWORD' does not exist.
+(Use `node --trace-uncaught ...` to show where the exception was thrown)
+```
+
