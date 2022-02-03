@@ -1,7 +1,6 @@
 {
   "name": "default-envs-demo",
   "version": "0.0.1",
-  "automaticPublish": "true",
   "main": "demo.js",
   "private": false,
   "author": {
