@@ -139,7 +139,6 @@ defaultEnvs.required(['TOKEN', 'PASSWORD']);
 2. `npm install`
 3. `npm run ok`
 ```log
-
 > default-envs-demo@0.0.1 ok
 > PASSWORD='s3cret' TOKEN='xxxx-1111' APPLICATION_NAME='Super default-envs-demo 🚀' node demo.js
 
@@ -166,11 +165,10 @@ Application name: Super default-envs-demo 🚀
  - ✅ Found required env 'TOKEN'
 Required env 'PASSWORD' does not exist.
 
-/Users/patricjansson/dev/kth/gita.sys.kth.se/default-envs/index.js:69
+/Users/patricjansson/dev/kth/gita.sys.kth.se/default-envs/demo/node_modules/@kth/default-envs/index.js:69
       throw message;
       ^
 Required env 'PASSWORD' does not exist.
 (Use `node --trace-uncaught ...` to show where the exception was thrown)
-
 ```
 
