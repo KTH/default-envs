@@ -1,4 +1,4 @@
-const defaultEnvs = require("../index");
+const defaultEnvs = require("@kth/default-envs");
 
 defaultEnvs.set(
   {
