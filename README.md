@@ -43,8 +43,8 @@ console.log(process.env.APPINSIGHTS_INSTRUMENTATIONKEY); // abc-123
 ```
 
 ### Required values without any defaults
-Some envs do not have defaults and must required to exist before starting your service. 
-defaultEnvs.required([], console).
+Some envs do not have defaults and must exist before starting your service. 
+defaultEnvs.required([], console) will print information about if a logger is passed, and if the env is missing when invoking `required` throw an error _Required env 'PASSWORD' does not exist._ .
 
 ```bash
 node app.js
