@@ -135,4 +135,42 @@ defaultEnvs.required(['TOKEN', 'PASSWORD']);
 
 ## Demo
 
+1. Go to the directory https://github.com/KTH/default-envs/tree/master/demo
+2. `npm install`
+3. `npm run ok`
+```log
+
+> default-envs-demo@0.0.1 ok
+> PASSWORD='s3cret' TOKEN='xxxx-1111' APPLICATION_NAME='Super default-envs-demo 🚀' node demo.js
+
+ - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
+ - Env 'PORT' is not set, defaulting to '3000'.
+ - Env 'API_HOST' is not set, defaulting to 'https://api.kth.se'.
+ - Env 'APPINSIGHTS_INSTRUMENTATIONKEY' is not set, defaulting to ''.
+ - ✅ Found required env 'PASSWORD'
+ - ✅ Found required env 'TOKEN'
+
+Application name: Super default-envs-demo 🚀
+```
+4. `npm run fail`
+```log
+> default-envs-demo@0.0.1 fail
+> TOKEN='xxxx-1111' node demo.js
+
+ - Env 'APPLICATION_NAME' is not set, defaulting to 'Demo-app'.
+ - Env 'LOG_LEVEL' is not set, defaulting to 'info'.
+ - Env 'PORT' is not set, defaulting to '3000'.
+ - Env 'API_HOST' is not set, defaulting to 'https://api.kth.se'.
+ - Env 'APPINSIGHTS_INSTRUMENTATIONKEY' is not set, defaulting to ''.
+ - 🚨 Missing required env 'PASSWORD'
+ - ✅ Found required env 'TOKEN'
+Required env 'PASSWORD' does not exist.
+
+/Users/patricjansson/dev/kth/gita.sys.kth.se/default-envs/index.js:69
+      throw message;
+      ^
+Required env 'PASSWORD' does not exist.
+(Use `node --trace-uncaught ...` to show where the exception was thrown)
+
+```
 
