@@ -119,12 +119,16 @@ defaultEnvs.required(['TOKEN', 'PASSWORD']);
 
 ```log
 
-Default Envs
+  Default Envs 
 
-    ✓ If a default value is set you can access it via process.env.
-    ✓ If a env is already set prior to running set(defaults), process.env will return it.
-    ✓ After runnign unset() all defaults values are removed from process.env array.
-    ✓ After runnign unset() all emvs set on startup are still availible.
-    ✓ If a logger is passed to the set({}, logger), use it to log.
+    ✔ Throw an error if a required env is missing.
+    ✔ Do not throw an error if a required env exists.
+    ✔ If a default value is set you can access it wia process.env.
+    ✔ If a env is already set prior to running set(defaults), process.env will return it.
+    ✔ After runnign unset() all defaults values are removed from process.env array.
+    ✔ After runnign unset() all emvs set on startup are still availible.
+    ✔ If a logger is passed to the set({}, logger), use it to log.
 
+  7 passing (10ms)
+  
 ```
