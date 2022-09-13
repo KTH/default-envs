@@ -25,7 +25,7 @@
   },
   "scripts": {
     "build": "./build.sh",
-    "test": "node_modules/mocha/bin/mocha ./tests/unit-tests/test-*.js",
+    "test": "node_modules/mocha/bin/mocha.js ./tests/unit-tests/test-*.js",
     "clean": "rm -rf ./node_modules && rm -f package-lock.json",
     "package-update": "git pull && npm run clean & ncu -u && npm install && npm audit fix && npm test"
   },
